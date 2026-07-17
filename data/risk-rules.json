@@ -1,0 +1,25 @@
+{
+  "defaultRiskLevel": "low",
+  "rules": [
+    {
+      "emotion": "fearful_aggressive",
+      "minConfidence": 0.7,
+      "riskLevel": "high"
+    },
+    {
+      "emotion": "fearful_aggressive",
+      "minConfidence": 0.4,
+      "riskLevel": "medium"
+    },
+    {
+      "emotion": "angry",
+      "minConfidence": 0.7,
+      "riskLevel": "medium"
+    },
+    {
+      "emotion": "fearful",
+      "minConfidence": 0.7,
+      "riskLevel": "medium"
+    }
+  ]
+}

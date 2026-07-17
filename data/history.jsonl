@@ -1,0 +1,9 @@
+
+{"id":"30697dc8-1cd7-4109-9b31-ba0980df423a","timestamp":"2026-07-17T17:18:34.997Z","emotion":"fearful_aggressive","confidence":0.86,"riskLevel":"high","source":"simulation","audioFile":null}
+{"id":"caa79771-4472-4995-977f-bbb038668414","timestamp":"2026-07-17T17:20:35.056Z","emotion":"fearful_aggressive","confidence":0.86,"riskLevel":"high","source":"simulation","audioFile":null}
+{"id":"9bf0a749-8e93-4c57-8bce-fe27f68757cc","timestamp":"2026-07-17T17:26:34.775Z","emotion":"fearful_aggressive","confidence":0.86,"riskLevel":"high","source":"simulation","audioFile":null}
+{"id":"b81912c9-198f-44cb-871b-fc3cbc7134e2","timestamp":"2026-07-17T17:36:24.832Z","emotion":"fearful_aggressive","confidence":0.86,"riskLevel":"high","source":"simulation","audioFile":null}
+{"id":"b91aa578-68fa-4e5d-a11d-d6c7056b7659","timestamp":"2026-07-17T17:36:56.761Z","emotion":"fearful_aggressive","confidence":0.86,"riskLevel":"high","source":"simulation","audioFile":null}
+{"id":"11b75587-6b25-48e4-9286-09a6473f866f","timestamp":"2026-07-17T17:46:15.846Z","emotion":"unknown","confidence":0.86,"riskLevel":"low","source":"simulation","audioFile":null}
+{"id":"2cf393e1-e853-4c81-89eb-7dea5ccc1cb6","timestamp":"2026-07-17T17:46:22.469Z","emotion":"happy","confidence":0.86,"riskLevel":"low","source":"simulation","audioFile":null}
+{"id":"2d5e4f2d-982d-486c-b5c5-878fe7e6fc7c","timestamp":"2026-07-17T17:46:45.806Z","emotion":"angry","confidence":0.86,"riskLevel":"medium","source":"simulation","audioFile":null}

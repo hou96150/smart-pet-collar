@@ -1,0 +1,13 @@
+{
+  "name": "smart-pet-collar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "智慧寵物項圈第一版展示系統",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test server/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

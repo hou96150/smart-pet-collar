@@ -1,0 +1,9 @@
+{
+  "date": "2026-07-17",
+  "framework": "vanilla HTML, CSS and JavaScript served by Node.js",
+  "fontStack": "none detected",
+  "palette": "none detected",
+  "motion": "motion-cut; no motion library detected",
+  "spacing": "none detected",
+  "preserve": ["dependency-free frontend", "Node.js static-file boundary"]
+}

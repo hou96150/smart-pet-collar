@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="智慧寵物項圈即時監控介面，顯示狗狗情緒、信心與攻擊風險。">
+  <title>智慧寵物項圈｜即時監控</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='44' text-anchor='middle' font-size='36'%3E%E7%8A%AC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Geist:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="nav-edge" aria-label="主要導覽">
+    <a class="wordmark" href="#monitor">智慧寵物項圈</a>
+    <a class="nav-action" href="#test-tools">產生測試事件</a>
+  </header>
+
+  <main id="main-content">
+    <section class="monitor" id="monitor" aria-labelledby="monitor-title">
+      <div class="monitor__intro">
+        <div>
+          <p class="connection-line">
+            <span class="connection-dot" id="connection-dot" aria-hidden="true"></span>
+            <span id="connection-text">正在連線</span>
+          </p>
+          <h1 id="monitor-title">現在，牠還好嗎？</h1>
+        </div>
+        <p class="monitor__lede">監聽完成後，情緒、模型信心與攻擊風險會在這裡同步更新。</p>
+      </div>
+
+      <div class="live-workbench" aria-live="polite" aria-atomic="true">
+        <div class="live-workbench__emotion">
+          <span class="field-label">目前情緒</span>
+          <strong id="current-emotion">等待第一次辨識</strong>
+          <span class="source-label" id="source-label">尚無資料</span>
+        </div>
+        <dl class="live-workbench__metrics">
+          <div>
+            <dt>模型信心</dt>
+            <dd id="current-confidence">—</dd>
+          </div>
+          <div>
+            <dt>風險等級</dt>
+            <dd><span class="risk-badge" id="current-risk" data-risk="unknown">未判定</span></dd>
+          </div>
+          <div>
+            <dt>最後更新</dt>
+            <dd id="last-updated">—</dd>
+          </div>
+        </dl>
+      </div>
+      <p class="status-message" id="status-message" role="status">系統正在讀取目前狀態。</p>
+    </section>
+
+    <section class="pet-panel" aria-labelledby="pet-title">
+      <div class="pet-mark" aria-hidden="true">犬</div>
+      <div class="pet-panel__identity">
+        <h2 id="pet-title">寵物資料</h2>
+        <p class="pet-name">尚未設定名字</p>
+      </div>
+      <dl class="pet-panel__details">
+        <div><dt>品種</dt><dd>尚未設定</dd></div>
+        <div><dt>裝置</dt><dd>Raspberry Pi 監控端</dd></div>
+        <div><dt>監控方式</dt><dd>區域網路即時更新</dd></div>
+      </dl>
+    </section>
+
+    <section class="warning-panel" id="warning-panel" data-risk="none" aria-labelledby="warning-title">
+      <div>
+        <h2 id="warning-title">最新警告</h2>
+        <p id="warning-message">目前沒有需要處理的警告。</p>
+      </div>
+      <time id="warning-time">—</time>
+    </section>
+
+    <section class="history" aria-labelledby="history-title">
+      <div class="section-head">
+        <div>
+          <h2 id="history-title">辨識歷史</h2>
+          <p>最近 50 筆辨識事件，最新資料排列在最前面。</p>
+        </div>
+        <button class="button button--quiet" id="refresh-history" type="button">重新整理</button>
+      </div>
+      <div class="history-list" id="history-list">
+        <div class="empty-state" id="history-empty">
+          <p>目前還沒有辨識紀錄。</p>
+          <a href="#test-tools">產生第一筆測試事件</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="test-tools" id="test-tools" aria-labelledby="test-title">
+      <div class="section-head">
+        <div>
+          <h2 id="test-title">測試工具</h2>
+          <p>這些事件會標記為模擬資料，不代表真實 AI 判斷結果。</p>
+        </div>
+      </div>
+      <form id="test-form" novalidate>
+        <div class="form-field">
+          <label for="test-emotion">模擬情緒</label>
+          <select id="test-emotion" name="emotion">
+            <option value="happy">開心</option>
+            <option value="angry">生氣</option>
+            <option value="fearful">害怕</option>
+            <option value="sad">悲傷</option>
+            <option value="fearful_aggressive">害怕且具攻擊性</option>
+            <option value="unknown">無法辨識</option>
+          </select>
+        </div>
+        <div class="form-field form-field--range">
+          <label for="test-confidence">模型信心</label>
+          <div class="range-row">
+            <input id="test-confidence" name="confidence" type="range" min="0" max="1" step="0.01" value="0.86">
+            <output id="confidence-output" for="test-confidence">86％</output>
+          </div>
+        </div>
+        <button class="button button--primary" id="send-test" type="submit">送出測試事件</button>
+        <p class="form-message" id="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot-line">
+    <p><span class="wordmark">智慧寵物項圈</span><span aria-hidden="true">·</span><span>2025 畢業專題重建版</span><span aria-hidden="true">·</span><span>第一版即時監控</span></p>
+  </footer>
+
+  <dialog id="risk-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <form method="dialog">
+      <span class="dialog-signal" aria-hidden="true"></span>
+      <h2 id="dialog-title">偵測到高攻擊風險</h2>
+      <p id="dialog-description">系統辨識到危險情緒組合。請保持距離，先確認周遭環境是否安全。</p>
+      <dl class="dialog-details">
+        <div><dt>情緒</dt><dd id="dialog-emotion">—</dd></div>
+        <div><dt>信心</dt><dd id="dialog-confidence">—</dd></div>
+      </dl>
+      <button class="button button--danger" id="acknowledge-warning" value="close">我已看到警告</button>
+    </form>
+  </dialog>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
